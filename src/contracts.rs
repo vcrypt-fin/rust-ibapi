@@ -9,6 +9,7 @@ use crate::messages::IncomingMessages;
 use crate::messages::RequestMessage;
 use crate::Client;
 use crate::{server_versions, Error, ToField};
+use serde::Deserialize;
 
 mod decoders;
 mod encoders;
@@ -105,7 +106,7 @@ impl SecurityType {
     }
 }
 
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Deserialize)]
 /// Contract describes an instrument's definition
 pub struct Contract {
     /// The unique IB contract identifier.
